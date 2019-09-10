@@ -11,8 +11,7 @@ function getSentiment(text,res) {
    
     // Instantiates a client
     const client = new language.LanguageServiceClient({
-        projectId: 'spinnaker-252016',
-        keyFilename : 'spinnaker-nlp.json'
+        keyFilename : process.env.JSON_KEY
     })
    
     const document = {
