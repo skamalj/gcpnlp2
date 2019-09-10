@@ -1,0 +1,18 @@
+{
+  "name": "gcpnlp",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "@google-cloud/language": "^3.2.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}

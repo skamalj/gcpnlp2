@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+
+<div id='example-3'>
+    <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+  <textarea v-model="texttoanalyze" class="form-control" rows="5" placeholder="Write Text to analyze"></textarea>
+  <br>
+  <p>Sentiment \{{ sentiment }} </p>
+  <div class="progress">
+  <div v-bind:class="barclass" role="progressbar" aria-valuenow=40
+  aria-valuemin="0" aria-valuemax="100" v-bind:style="{ width:  barwidth }">
+    \{{ barwidth }} Score
+  </div>
+</div>
+  <br>
+  <button type="button" class="btn btn-info" v-on:click="analyze">Analyze</button>
+</div>
+<div class="col-sm-1"></div>
+</div>
+</div>
+
+<script>
+new Vue({
+  el: '#example-3',
+  data: {
+    texttoanalyze: "",
+    sentiment: 0.3
+  },
+  computed: {
+    barwidth: function() {
+       return parseInt((Number(this.sentiment) + 1.0 )*50.0) + "%"
+    },
+    barclass: function() {
+      if (this.sentiment*1.0 < -0.5) {
+         return"progress-bar progress-bar-danger"
+      }
+      else if (this.sentiment*1.0 > 0.6) {
+          return "progress-bar progress-bar-success"
+      } else {
+         return "progress-bar progress-bar-warning"
+      }
+    }
+  },
+  methods: {
+    analyze: function(){
+      analyzetext(this);
+    }
+  }
+  
+})
+function analyzetext(vueObj) {
+	  axios.get("/getSentiment/"+ vueObj.texttoanalyze).then(function(response){
+		  vueObj.sentiment = response.data.score;
+		  });
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
