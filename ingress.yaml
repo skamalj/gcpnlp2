@@ -9,5 +9,5 @@ spec:
       paths: 
       - path: /nlp-dev
         backend:
-          serviceName: nlpapp-serv
+          serviceName: nlpappserv
           servicePort: 3000
