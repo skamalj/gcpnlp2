@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nlp
+spec:
+ rules:
+  - host: gkestage.kamalsblog.com
+    http:
+      paths: 
+      - path: /nlp-dev
+        backend:
+          serviceName: nlpapp-serv
+          servicePort: 3000
