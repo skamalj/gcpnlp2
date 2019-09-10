@@ -40,7 +40,7 @@ spec:
               readOnly: true
           resources:
             limits:
-              cpu: "250m"
+              cpu: "100m"
               memory: "128Mi"                
       volumes:
         - name: servaccs
