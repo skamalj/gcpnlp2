@@ -13,9 +13,9 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 5
+      maxSurge: 2
       maxUnavailable: 1
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
        app: nlpapp-be
