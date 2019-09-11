@@ -13,7 +13,7 @@ app.get('/getSentiment/:text', userlistctrl.returnSentiment);
 // 404 
 app.use(function(req, res, next) {
 	res.status(404);
-	res.send('<h1>404 - Not Found</h1>')
+	res.send('<h1>404 - Not Found</h1> ' + req.url)
 });
 // 500 
 app.use(function(err, req, res, next) {

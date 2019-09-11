@@ -9,7 +9,7 @@ spec:
   - host: gkestage.kamalsblog.com
     http:
       paths: 
-      - path: /nlp-dev
+      - path: /nlpdev
         backend:
           serviceName: nlpappserv
           servicePort: 3000
