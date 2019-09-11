@@ -2,14 +2,11 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: nlp
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /main
 spec:
  rules:
   - host: gkestage.kamalsblog.com
     http:
       paths: 
-      - path: /nlpdev
-        backend:
+      - backend:
           serviceName: nlpappserv
           servicePort: 3000

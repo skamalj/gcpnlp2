@@ -4,7 +4,7 @@ const userlistctrl = require('../controllers/getSentiment.js');
 
 module.exports = function(app){
 
-app.get('/main/', function(req, res) {
+app.get('/', function(req, res) {
         res.render('main',{layout: false});
 });
 
