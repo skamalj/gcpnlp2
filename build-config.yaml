@@ -1,13 +1,7 @@
 steps:
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/nlpapp:$TAG_NAME','.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/nlpapp2:$TAG_NAME','.']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/nlpapp:$TAG_NAME']
-
-- name: 'gcr.io/$PROJECT_ID/helm'
-  args: ['upgrade', '--install', '--force' , '--set', 'imagetag=$TAG_NAME,projectid=$PROJECT_ID','nlpapprel', './nlpchart', '--namespace', 'default']
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=gkestage'
+  args: ['push', 'gcr.io/$PROJECT_ID/nlpapp2:$TAG_NAME']

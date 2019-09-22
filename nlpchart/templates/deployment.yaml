@@ -21,7 +21,7 @@ spec:
     spec: 
       containers:
         - name: nlpapp-be
-          image: gcr.io/{{ .Values.projectid }}/nlpapp:{{ .Values.imagetag }}
+          image: gcr.io/{{ .Values.projectid }}/nlpapp2:{{ .Values.imagetag }}
           env:
             - name: JSON_KEY
               valueFrom:
